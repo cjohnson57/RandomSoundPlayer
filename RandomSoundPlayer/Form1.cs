@@ -22,6 +22,10 @@ namespace RandomSoundPlayer
                 int selectedfile = r.Next(1, files.Length + 1) - 1;
                 try
                 {
+                    if (files[selectedfile].Contains(".mp3") == false)
+                    {
+                        throw new Exception();
+                    }
                     WindowsMediaPlayer wplayer = new WindowsMediaPlayer();
                     wplayer.URL = @files[selectedfile];
                     wplayer.controls.play();
